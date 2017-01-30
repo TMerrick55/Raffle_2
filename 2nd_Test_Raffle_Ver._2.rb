@@ -29,3 +29,24 @@ class Test_Raffle_Function < MiniTest::Test
 		assert_equal(false, results)
 	end
 end
+
+class Test_Return_Raffle < MiniTest::Test
+
+	def test_return_empty_array
+		my_num ='1234'
+		win_nums = ['5678', '9999', '5656']
+		assert_equal([], returning_function(my_num, win_nums))
+	end
+
+	def test_return_array_of_1
+		my_num = '1234'
+		win_nums = ['3234', '5555', '6789']
+		assert_equal(['3234'], returning_function(my_num, win_nums))
+	end
+
+	def test_return_array_of_3
+		my_num = '5678'
+		win_nums = ['1678', '5618', '5578', '5678', '1111']
+		assert_equal(['1678', '5618', '5578', '5678', '1111'], returning_function(my_num, win_nums))
+	end
+end
